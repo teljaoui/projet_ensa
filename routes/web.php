@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FactShowController;
-use App\Http\Controllers\SalleController;
+use App\Http\Controllers\InerfaceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SalleController::class, 'home'])->name("home");
+Route::get('/', [ InerfaceController::class, 'home'])->name("home");
+Route::get('/salles' , [InerfaceController::class , 'salles'])->name("salles");
+Route::get('/salle', [InerfaceController::class , 'salle'])->name("salle");
 
 Route::prefix('/admin')->group(function () {
-    Route::get('/', [SalleController::class, 'homeadmin'])->name("admin");
+    Route::get('/', [ AdminController::class, 'homeadmin'])->name("admin");
 
     Route::prefix('/prof')->group(function () {
-        Route::get('/', [SalleController::class, 'profview'])->name("profliste");
-        Route::get('/add' , [SalleController::class , 'profadd' ])->name('profadd');
-        Route::get('/update' , [SalleController::class , 'profup'])->name('profup');
+        Route::get('/', [ AdminController::class, 'profview'])->name("profliste");
+        Route::get('/add' , [ AdminController::class , 'profadd' ])->name('profadd');
+        Route::get('/update' , [ AdminController::class , 'profup'])->name('profup');
     });
 });
 

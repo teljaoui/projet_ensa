@@ -6,15 +6,19 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function login(){
-        return view('login');
-    }
-    public function compte(){
-        $page_title = "Paramètres du compte";
-        return view('admin.admin' , compact('page_title'));
+
+
+    public function homeadmin(){
+        return view("admin.home");
     }
 
-
-
-
+    public function profview(){
+        return view("admin.prof.home");
+    }
+    public function profadd(){
+        return view('admin.prof.add');
+    }
+    public function profup(){
+        return view("admin.prof.update");
+    }
 }
