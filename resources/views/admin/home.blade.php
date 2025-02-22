@@ -41,8 +41,8 @@
                                             <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar"
                                                 class="avatar me-3">
                                             <div>
-                                                <a href="maileto:">Mohamed Test</a><br>
-                                                <span>mohamedtest@gmail.com</span>
+                                                <a href="maileto:">Salma Test</a><br>
+                                                <span>salmatest@gmail.com</span>
                                             </div>
                                         </div>
                                     </td>

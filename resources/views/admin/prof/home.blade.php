@@ -40,8 +40,8 @@
                                         <div class="d-flex align-items-center info">
                                             <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar" class="avatar me-3">
                                             <div>
-                                                <a href="">Mohamed Test</a><br>
-                                                <span>mohamedtest@gmail.com</span>
+                                                <a href="">Salma Test</a><br>
+                                                <span>salmatest@gmail.com</span>
                                             </div>
                                         </div>
                                     </td>
