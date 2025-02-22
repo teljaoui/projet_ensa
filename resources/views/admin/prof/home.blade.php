@@ -17,29 +17,20 @@
 
     <div class="wrapper">
         <aside id="sidebar">
-            @include('layout.asidebar')
+            @include('admin.layout.asidebar')
         </aside>
         <div class="main">
-            <header>
-                @include('layout.header')
-            </header>
             <div class="container my-5">
-                <div class="client-top d-flex align-items-center justify-content-between">
-                    <form action="">
-                        <div class="form-group search-form">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" class="form-control" placeholder="Rechercher">
-                        </div>
-                    </form>
-                    <a href="{{route("ajouterclient")}}" class="button">Ajouter un Client</a>
+                <div class="client-top d-flex align-items-center justify-content-end">
+                    <a href="{{route("profadd")}}" class="button">Ajouter un Professeur</a>
                 </div>
                 <div class="content">
                     <div class="table-responsive py-1 px-3">
                         <table class="table align-middle ">
                             <thead>
                                 <tr>
-                                    <th>CLIENT</th>
-                                    <th class="text-center">FACTURE D'ACHAT</th>
+                                    <th>Professeur</th>
+                                    <th>Téléphone</th>
                                     <th class="text-center">ACTION</th>
                                 </tr>
                             </thead>
@@ -49,16 +40,16 @@
                                         <div class="d-flex align-items-center info">
                                             <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar" class="avatar me-3">
                                             <div>
-                                                <a href="{{route('detailclient')}}">Mohamed Test</a><br>
+                                                <a href="">Mohamed Test</a><br>
                                                 <span>mohamedtest@gmail.com</span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center">
-                                        <span class="badge">0</span>
+                                    <td>
+                                        <span>0652583234</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="" class="btn-action edite"><i class="fas fa-edit"></i></a>
+                                        <a href="{{route("profup")}}" class="btn-action edite"><i class="fas fa-edit"></i></a>
                                         <a href="" class="btn-action"><i class="fas fa-trash text-danger"></i></a>
                                     </td>
                                 </tr>

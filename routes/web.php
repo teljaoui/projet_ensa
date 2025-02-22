@@ -17,15 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [SalleController::class, 'home'])->name("home");
 
-Route::get('/', [SalleController::class , 'home'])->name("home");
+Route::prefix('/admin')->group(function () {
+    Route::get('/', [SalleController::class, 'homeadmin'])->name("admin");
 
-Route::prefix('/admin')->group(function(){
-    Route::get('/prof' , [SalleController::class , 'profview'])->name("profliste");
+    Route::prefix('/prof')->group(function () {
+        Route::get('/', [SalleController::class, 'profview'])->name("profliste");
+        Route::get('/add' , [SalleController::class , 'profadd' ])->name('profadd');
+        Route::get('/update' , [SalleController::class , 'profup'])->name('profup');
+    });
 });
 
-
-
-
-
-Route::get('/login' , [AuthController::class , 'login']);
+Route::get('/login', [AuthController::class, 'login']);

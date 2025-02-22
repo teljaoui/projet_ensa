@@ -391,7 +391,7 @@ header .header {
 }
 
 .container {
-    width: 95%;
+    width: 90% !important;
     margin-inline: auto;
 }
 

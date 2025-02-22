@@ -20,7 +20,53 @@
             @include('admin.layout.asidebar')
         </aside>
         <div class="main">
-            
+            <div class="container my-5">
+                <div class="content">
+                    <div class="table-responsive py-1 px-3">
+                        <table class="table align-middle ">
+                            <thead>
+                                <tr>
+                                    <th>Professeur</th>
+                                    <th class="text-center">Salle</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Heure Début</th>
+                                    <th class="text-center">Heure Fin</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center info">
+                                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar"
+                                                class="avatar me-3">
+                                            <div>
+                                                <a href="maileto:">Mohamed Test</a><br>
+                                                <span>mohamedtest@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge-info">salle 1</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span>28-05-2025</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span>14:00</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span>15:00</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="" class="btn-action"><i class="fas fa-trash text-danger"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

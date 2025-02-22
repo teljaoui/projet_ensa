@@ -17,18 +17,15 @@
 
     <div class="wrapper">
         <aside id="sidebar">
-            @include('layout.asidebar')
+            @include('admin.layout.asidebar')
         </aside>
         <div class="main">
-            <header>
-                @include('layout.header')
-            </header>
             <div class="container my-5">
                 <div class="content">
                     <form action="" class="py-3 px-3">
-                        <h5 class="text-center">Ajouter un client</h5>
+                        <h5 class="text-center">Ajouter un Professeur</h5>
                         <div class="row">
-                            <div class="form-group col-lg-12 col-sm-12 col-md-12 mb-3">
+                            <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
                                 <label for="" class="form-label">Nom Complet:</label>
                                 <input type="text" class="form-control" placeholder="Nom Complet" required>
                             </div>
@@ -41,25 +38,26 @@
                                 <input type="number" class="form-control" placeholder="+212 6000000000" required>
                             </div>
                             <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Site:</label>
-                                <input type="text" class="form-control" placeholder="Site" required>
+                                <label for="password" class="form-label">Mot de passe :</label>
+                                <div class="input-group">
+                                    <input type="text" id="password" class="form-control" placeholder="Mot de passe" required>
+                                    <button type="button" class="export" onclick="generatePassword()">Générer</button>
+                                </div>
                             </div>
-                            <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Code Postal:</label>
-                                <input type="text" class="form-control" placeholder="Code Postal" required>
-                            </div>
-                            <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Adresse:</label>
-                                <textarea name=""  class="form-control" id="" placeholder="Adresse"></textarea>
-                            </div>
-                            <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Notes:</label>
-                                <textarea name=""  class="form-control" id="" placeholder="Notes"></textarea>
-                            </div>
-                            <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Nom de l'entreprise:</label>
-                                <textarea name=""  class="form-control" id="" placeholder="Nom de l'entreprise"></textarea>
-                            </div>
+                            
+                            <script>
+                                function generatePassword() {
+                                    let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+                                    let passwordLength = 12;
+                                    let password = "";
+                                    for (let i = 0; i < passwordLength; i++) {
+                                        let randomIndex = Math.floor(Math.random() * charset.length);
+                                        password += charset[randomIndex];
+                                    }
+                                    document.getElementById("password").value = password;
+                                }
+                            </script>
+                            
                             <div class="col-12 text-end">
                                 <input type="submit" value="Enregister" class="button">
                                 <input type="reset" value="Annuler" class="reset">
