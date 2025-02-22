@@ -8,12 +8,12 @@
 </div>
 <ul class="sidebar-nav">
     <li class="sidebar-item">
-        <a href="{{route("admin")}}" class="sidebar-link">
+        <a href="{{ route('admin') }}" class="sidebar-link">
             <i class="fa-solid fa-calendar-week"></i> <span>Réservation</span>
         </a>
     </li>
     <li class="sidebar-item">
-        <a href="{{route("profliste")}}" class="sidebar-link">
+        <a href="{{ route('profliste') }}" class="sidebar-link">
             <i class="fa-solid fa-person-chalkboard"></i>
             <span>Professeur</span>
         </a>
@@ -22,6 +22,12 @@
         <a href="/" class="sidebar-link">
             <i class="fa-solid fa-chalkboard-user"></i>
             <span>Salle</span>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a href="/" class="sidebar-link">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Gestion des Horaires</span>
         </a>
     </li>
     <li class="sidebar-item">
