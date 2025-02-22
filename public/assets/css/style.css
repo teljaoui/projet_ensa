@@ -139,7 +139,7 @@ li {
 }
 
 .form-login .form-group label {
-    margin-bottom: 8px ;
+    margin-bottom: 8px;
     font-size: 1rem;
     color: var(--color-212529);
 }
@@ -394,7 +394,8 @@ header .header {
     width: 90% !important;
     margin-inline: auto;
 }
-.container h4{
+
+.container h4 {
     font-size: 30px;
     text-transform: uppercase;
     color: var(--color-6c757d);
@@ -596,18 +597,17 @@ header .header {
     color: var(--color-6c757d);
 }
 
-.content .form-group label ,
+.content .form-group label,
 .reservation label {
     margin-bottom: 8px;
     font-size: 1rem;
     color: var(--color-212529);
 }
 
-.content  .form-control,
-.content  .form-select ,
-.reservation  .form-control,
-.reservation  .form-select 
-{
+.content .form-control,
+.content .form-select,
+.reservation .form-control,
+.reservation .form-select {
     display: block;
     width: 100%;
     padding: .5rem .8rem;
@@ -616,8 +616,8 @@ header .header {
     transition: 0.5s ease-in-out;
 }
 
-.content  .form-control:focus,
-.content  .form-select:focus,
+.content .form-control:focus,
+.content .form-select:focus,
 .reservation .form-control:focus,
 .reservation .form-select:focus {
     border: 1px solid var(--color-6c757d);
@@ -633,25 +633,27 @@ header .header {
 /*content ends */
 /*salle*/
 
-.salle{
+.salle {
     padding: 25px;
     margin: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.176);
     border-radius: 15px;
 }
-.salle h6{
+
+.salle h6 {
     font-size: 20px;
     font-weight: 500;
     color: var(--color-343a40);
 }
-.salle p , 
-.salle span{
+
+.salle p,
+.salle span {
     font-size: 15px;
     font-weight: 500;
     color: var(--color-6c757d);
 }
 
-.salle-details{
+.salle-details {
     background-color: var(--color-fff);
     margin-block: 25px;
     border-radius: 5px;
@@ -659,7 +661,8 @@ header .header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
     padding: 40px;
 }
-.salle-details h5{
+
+.salle-details h5 {
     text-align: center;
     background-color: var(--color-ffb821);
     padding: 15px;
@@ -667,22 +670,24 @@ header .header {
     border-radius: 8px;
 }
 
-.salle-details .details h6{
+.salle-details .details h6 {
     font-size: 20px;
     font-weight: 700;
     color: var(--color-343a40);
 }
 
-.salle-details .horaires td span{
+.salle-details .horaires td span {
     color: var(--color-343a40);
     font-size: 20px;
-    margin: 15px;    
+    margin: 15px;
 }
-.salle-details .horaires td.active{
+
+.salle-details .horaires td.active {
     background-color: var(--color-e0e3ff);
     width: 100%;
     border-left: 4px solid var(--color-6571ff);
 }
+
 /*salle ends*/
 /*Résponsive design*/
 
@@ -706,14 +711,15 @@ header .header {
 }
 
 @media (max-width:450px) {
-    
-.salle-details .details h6,
-.reservation h6{
-    font-size: 15px;
-}
-.salle-details .horaires td span{
-    font-size: 15px;
-}
+
+    .salle-details .details h6,
+    .reservation h6 {
+        font-size: 15px;
+    }
+
+    .salle-details .horaires td span {
+        font-size: 15px;
+    }
 
 }
 

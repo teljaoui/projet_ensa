@@ -22,7 +22,7 @@ Route::get('/salle', [InerfaceController::class , 'salle'])->name("salle");
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', [ AdminController::class, 'homeadmin'])->name("admin");
-
+    Route::get('/login' , [AdminController::class , 'login_admin'])->name("login_admin");
     Route::prefix('/prof')->group(function () {
         Route::get('/', [ AdminController::class, 'profview'])->name("profliste");
         Route::get('/add' , [ AdminController::class , 'profadd' ])->name('profadd');
