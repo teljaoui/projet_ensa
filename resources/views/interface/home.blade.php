@@ -15,18 +15,21 @@
 
 <body>
 
-    <div class="wrapper">
-        <aside id="sidebar">
-            @include('layout.asidebar')
-        </aside>
-        <div class="main">
-            <header>
-                @include('layout.header')
-            </header>
+    <div class="container my-5">
+        <div class="content">
+            <form action="" class=" py-3 px-3">
+                <h5 class="text-center">Choisissez la date qui vous convient.</h5>
+                <div class="row">
+                    <div class="form-group col-lg-12 col-sm-12 col-md-12 mb-3">
+                        <input type="date" class="form-control" placeholder="Nom Complet" required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <input type="submit" value="Enregister" class="button w-50">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-
-
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

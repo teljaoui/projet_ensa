@@ -116,7 +116,7 @@ li {
 
 /*login page*/
 
-.form-login{
+.form-login {
     width: 40%;
     margin-inline: auto;
     margin-top: 10%;
@@ -125,18 +125,19 @@ li {
     border-radius: 15px;
 }
 
-.form-login h5{
+.form-login h5 {
     font-size: 18px;
     text-align: center;
     color: var(--color-343a40);
 }
 
-.form-login input[type = "submit"]{
+.form-login input[type="submit"] {
     width: 100%;
     display: inline-block;
     text-align: center;
     align-items: center;
 }
+
 .form-login .form-group label {
     margin-bottom: 8px;
     font-size: 1rem;
@@ -159,10 +160,11 @@ li {
     outline: none;
 }
 
-.form-login img{
+.form-login img {
     width: 100px;
     height: auto;
 }
+
 /*login page ends*/
 
 /*asidebar*/
@@ -302,7 +304,8 @@ header .header {
     background-color: var(--color-fff);
 }
 
-.header .page-title h5 , .sidebar-logo {
+.header .page-title h5,
+.sidebar-logo {
     font-size: 1.2rem;
     font-weight: 400;
     position: relative;
@@ -387,13 +390,13 @@ header .header {
     background-color: var(--color-eff3f7);
 }
 
-.main .container {
+.container {
     width: 95%;
     margin-inline: auto;
 }
 
 
-.main .search-form {
+.search-form {
     display: flex;
     align-items: center;
     background-color: var(--color-fff);
@@ -402,37 +405,38 @@ header .header {
     padding: 1px 12px;
 }
 
-.main .search-form input {
+.search-form input {
     background-color: none !important;
     border: none !important;
     padding: 5px 12px;
 }
 
-.main .search-form input:focus {
+.search-form input:focus {
     outline: none;
     box-shadow: none !important;
 }
 
-.main .search-form i {
+.search-form i {
     font-size: 15px;
     color: var(--color-6c757d);
 }
 
-.main .content {
+.content {
     background-color: var(--color-fff);
     margin-block: 25px;
     border-radius: 5px;
     margin-inline: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
 }
 
-.main .content span.badge {
+.content span.badge {
     background-color: var(--color-0ac074);
     border-radius: 50%;
     color: var(--color-fff);
     font-size: 10px;
 }
 
-.main .content span.badge-red {
+.content span.badge-red {
     background-color: var(--color-fdd4da);
     color: var(--color-f62947);
     padding: .344rem .625rem;
@@ -440,7 +444,7 @@ header .header {
     border-radius: 5px;
 }
 
-.main .content span.badge-success {
+.content span.badge-success {
     background-color: var(--color-cef2e3);
     color: var(--color-0ac074);
     padding: .344rem .625rem;
@@ -448,7 +452,7 @@ header .header {
     border-radius: 5px;
 }
 
-.main .content span.badge-warning {
+.content span.badge-warning {
     background-color: var(--color-fff1d3);
     color: var(--color-ffb821);
     padding: .344rem .625rem;
@@ -457,7 +461,7 @@ header .header {
 
 }
 
-.main .content span.badge-genie {
+.content span.badge-genie {
     background-color: var(--color-e0e3ff);
     color: var(--color-6571ff);
     padding: 2px 8px;
@@ -467,7 +471,7 @@ header .header {
 
 }
 
-.main .content span.badge-info {
+.content span.badge-info {
     background-color: var(--color-ccebfe);
     color: var(--color-0099fb);
     padding: 2px 8px;
@@ -479,53 +483,53 @@ header .header {
 
 
 
-.main .content .info a {
+.content .info a {
     color: var(--color-6571ff);
     font-size: 14px;
     text-transform: capitalize;
 }
 
-.main .content span {
+.content span {
     color: var(--color-6c757d);
     font-size: 14px;
 }
 
-.main .content a.btn-action {
+.content a.btn-action {
     font-size: 15px;
     margin-inline: 5px;
 }
 
-.main .content .edite {
+.content .edite {
     color: var(--color-6571ff) !important;
 }
 
-.main .clientinfo {
+.clientinfo {
     padding: 35px;
 }
 
-.main .clientinfo img {
+.clientinfo img {
     width: 80px;
     height: 80px;
     margin-right: 30px;
 }
 
-.main .clientinfo h6 {
+.clientinfo h6 {
     font-size: 16px;
 }
 
-.main .clientinfo a {
+.clientinfo a {
     font-size: 16px;
     color: var(--color-6c757d);
     font-weight: 550;
 }
 
-.main .clientinfo span,
-.main .clientinfo p {
+.clientinfo span,
+.clientinfo p {
     font-size: 14px;
     font-weight: 500;
 }
 
-.main .header-client-content a {
+.header-client-content a {
     font-size: 15px;
     padding: 2px;
     color: var(--color-6c757d);
@@ -533,13 +537,13 @@ header .header {
     transition: 0.1s ease-in-out;
 }
 
-.main .header-client-content a.active,
-.main .header-client-content a:hover {
+.header-client-content a.active,
+.header-client-content a:hover {
     border-bottom: 2px solid var(--color-6571ff);
     color: var(--color-6571ff);
 }
 
-.main .clientinfo p {
+.clientinfo p {
     margin-top: 10px !important;
     color: var(--color-343a40);
 }
@@ -581,20 +585,20 @@ header .header {
 }
 
 
-.main .content h5 {
+.content h5 {
     font-size: 20px;
     text-transform: uppercase;
     color: var(--color-6c757d);
 }
 
-.main .content .form-group label {
+.content .form-group label {
     margin-bottom: 8px;
     font-size: 1rem;
     color: var(--color-212529);
 }
 
-.main .form-control,
-.main .form-select {
+.content  .form-control,
+.content  .form-select {
     display: block;
     width: 100%;
     padding: .5rem .8rem;
@@ -603,14 +607,14 @@ header .header {
     transition: 0.5s ease-in-out;
 }
 
-.main .form-control:focus,
-.main .form-select:focus {
+.content  .form-control:focus,
+.content  .form-select:focus {
     border: 1px solid var(--color-6c757d);
     box-shadow: none;
     outline: none;
 }
 
-.main .content .devis-total p {
+.content .devis-total p {
     font-weight: 600;
     color: var(--color-212529);
 }
@@ -619,41 +623,10 @@ header .header {
 
 /*Résponsive design*/
 
-.toggle-btn-phone {
-    display: none;
-}
-
-#toggle-btn-phone {
-    display: none;
-}
-
-#closetoggle {
-    display: none;
-}
-
-.facture-button {
-    display: none;
-}
 
 @media (max-width:1024px) {
-    .phone-hidden {
-        display: none;
-    }
 
-    #sidebar {
-        position: absolute;
-        left: -100%;
-    }
-
-    #toggle-btn-phone,
-    #closetoggle {
-        display: inline-block;
-    }
-
-    .toggle-btn {
-        display: none;
-    }
-    .form-login{
+    .form-login {
         width: 80% !important;
         margin-top: 20%;
     }
@@ -662,39 +635,13 @@ header .header {
 
 
 @media (max-width:641px) {
-    .client-top {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px;
-    }
 
-    .facture-phone {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .badge-red,
-    .badge-success,
-    .badge,
-    .badge-genie,
-    .badge-warning {
-        display: inline-block;
-    }
-    .form-login{
+    .form-login {
         width: 90% !important;
         margin-top: 30%;
     }
 }
 
-@media (max-width:450px) {
-    .header-right .button {
-        display: none;
-    }
-
-    .facture-button {
-        display: inline;
-    }
-
-}
+@media (max-width:450px) {}
 
 /*Résponsive design ends*/

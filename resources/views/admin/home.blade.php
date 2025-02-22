@@ -10,32 +10,17 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <title>Nouvelle cotation</title>
+    <title>Tableau de bord</title>
 </head>
 
 <body>
 
     <div class="wrapper">
         <aside id="sidebar">
-            @include('layout.asidebar')
+            @include('admin.layout.asidebar')
         </aside>
         <div class="main">
-            <header>
-                @include('layout.header')
-            </header>
-            <div class="container my-5">
-                <div class="client-top d-flex align-items-center justify-content-between">
-                    <div>
-                        <h5>Détails du devis</h5>
-                    </div>
-                    <div class="d-flex gap-10">
-                        <a href="{{ route('ajouterclient') }}" class="button">Edite</a>
-                        <a href="" class="link">Retour</a>
-                    </div>
-                </div>
-                <div class="content">
-                </div>
-            </div>
+            
         </div>
     </div>
 

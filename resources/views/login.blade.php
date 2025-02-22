@@ -21,7 +21,7 @@
                 <img src="{{asset('assets/img/logo.png')}}" alt="">
             </div>
             <form action="">
-                <h5>Bienvenue de nouveau!</h5>
+                <h5>Bienvenue ! Connectez-vous pour réserver votre salle.</h5>
                 <div class="form-group py-3">
                     <label for="" class="form-label">Email:</label>
                     <input type="email" placeholder="Email" class="form-control">
