@@ -712,13 +712,16 @@ header .header {
 
 @media (max-width:450px) {
 
-    .salle-details .details h6,
-    .reservation h6 {
+    .salle-details .details h6{
         font-size: 15px;
     }
 
     .salle-details .horaires td span {
         font-size: 15px;
+    }
+    .reservation h6 {
+        text-align: center;
+        font-size: 14px;
     }
 
 }

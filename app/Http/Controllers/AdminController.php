@@ -35,4 +35,14 @@ class AdminController extends Controller
     public function salleup(){
         return view('admin.salle.update');
     }
+
+    public function horaires(){
+        return view("admin.horaires.home");
+    }
+    public function horaireadd(){
+        return view("admin.horaires.add");
+    }
+    public function horaireup(){
+        return view("admin.horaires.update");
+    }
 }

@@ -33,6 +33,10 @@ Route::prefix('/admin')->group(function () {
         Route::get('/add' , [AdminController::class , 'salleadd'])->name("salleadd");
         Route::get('/update' , [AdminController::class , 'salleup'])->name("salleup");
     });
+    Route::prefix('horaire')->group(function(){
+        Route::get('/' , [AdminController::class , 'horaires'])->name("horaires");
+        Route::get('/add' , [AdminController::class , 'horaireadd'])->name("horaireadd");
+    });
 });
 
 Route::get('/login', [AuthController::class, 'login']);
