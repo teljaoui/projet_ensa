@@ -23,4 +23,16 @@ class AdminController extends Controller
     public function profup(){
         return view("admin.prof.update");
     }
+
+    public function salles(){
+        return view('admin.salle.home');
+    }
+    
+    public function salleadd(){
+        return view('admin.salle.add');
+    }
+    
+    public function salleup(){
+        return view('admin.salle.update');
+    }
 }

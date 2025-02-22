@@ -28,6 +28,11 @@ Route::prefix('/admin')->group(function () {
         Route::get('/add' , [ AdminController::class , 'profadd' ])->name('profadd');
         Route::get('/update' , [ AdminController::class , 'profup'])->name('profup');
     });
+    Route::prefix('/salles')->group(function(){
+        Route::get('/' , [AdminController::class , 'salles'])->name("salles");
+        Route::get('/add' , [AdminController::class , 'salleadd'])->name("salleadd");
+        Route::get('/update' , [AdminController::class , 'salleup'])->name("salleup");
+    });
 });
 
 Route::get('/login', [AuthController::class, 'login']);

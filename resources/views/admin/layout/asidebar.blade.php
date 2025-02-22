@@ -19,7 +19,7 @@
         </a>
     </li>
     <li class="sidebar-item">
-        <a href="/" class="sidebar-link">
+        <a href="{{route("salles")}}" class="sidebar-link">
             <i class="fa-solid fa-chalkboard-user"></i>
             <span>Salle</span>
         </a>
