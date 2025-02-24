@@ -249,7 +249,7 @@ a.sidebar-link {
     margin-right: .75rem;
 }
 
-a.sidebar-link:hover {
+a.sidebar-link:hover , a.active {
     background-color: var(--color-e0e3ff);
     color: var(--color-212529);
     border-left: 3px solid var(--color-6571ff);
