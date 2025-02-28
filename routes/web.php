@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InerfaceController;
+use App\Http\Controllers\ServerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('/prof')->group(function () {
         Route::get('/', [ AdminController::class, 'profview'])->name("profliste");
         Route::get('/add' , [ AdminController::class , 'profadd' ])->name('profadd');
-        Route::get('/update' , [ AdminController::class , 'profup'])->name('profup');
+        Route::get('/update/{id}' , [ AdminController::class , 'profup'])->name('profup');
     });
     Route::prefix('/salles')->group(function(){
         Route::get('/' , [AdminController::class , 'salles'])->name("salles");
@@ -40,3 +41,11 @@ Route::prefix('/admin')->group(function () {
 });
 
 Route::get('/login', [AuthController::class, 'login']);
+
+
+
+/*prof server */
+
+Route::post('/addprofpost' , [ServerController::class , 'addprofpost'])->name('addprofpost');
+
+/*prof server  ends*/
