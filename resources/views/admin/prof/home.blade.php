@@ -26,6 +26,16 @@
                 </div>
                 <div class="content">
                     <div class="table-responsive py-1 px-3">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         <table class="table align-middle ">
                             <thead>
                                 <tr>
@@ -53,8 +63,9 @@
                                         <td class="text-center">
                                             <a href="{{ route('profup', ['id' => $prof->id]) }}"
                                                 class="btn-action edite"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn-action"><i
-                                                    class="fas fa-trash text-danger"></i></a>
+                                            <a href="{{ route('deleteprof', ['id' => $prof->id]) }}"
+                                                class="btn-action"><i
+                                                    class="fas fa-trash text-danger confirmdelete"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
