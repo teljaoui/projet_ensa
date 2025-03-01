@@ -16,8 +16,18 @@
 <body>
 
     <div class="container">
-        <div class="content py-5" style="margin-top: 20% !important">
+        <div class="content py-5" style="margin-top: 15% !important">
             <form action="" class=" py-3 px-3">
+                @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
                 <h5 class="text-center">Choisissez la date qui vous convient.</h5>
                 <div class="row">
                     <div class="form-group col-lg-12 col-sm-12 col-md-12 mb-3">

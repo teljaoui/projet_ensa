@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InerfaceController;
 use App\Http\Controllers\ServerController;
 use App\Http\Middleware\LoginAdminMiddleware;
+use App\Http\Middleware\LoginProfMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [InerfaceController::class, 'home'])->name("home");
-Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles");
-Route::get('/salle/{id}', [InerfaceController::class, 'salle'])->name("salle");
+Route::get('/', [InerfaceController::class, 'home'])->name("home")->middleware(LoginProfMiddleware::class);
+Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles")->middleware(LoginProfMiddleware::class);
+Route::get('/salle/{id}', [InerfaceController::class, 'salle'])->name("salle")->middleware(LoginProfMiddleware::class);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/loginprofpost' , [AuthController::class , 'loginprofpost'])->name('loginprofpost');
+Route::post('/loginprofpost', [AuthController::class, 'loginprofpost'])->name('loginprofpost');
 
 
 

@@ -31,7 +31,7 @@ class ServerController extends Controller
 
             $email = $prof->email;
             $subject = 'Vos informations de connexion à l\'application de réservation de salles.';
-            $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :mail\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
+            $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :$email\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
 
             $subject = str_replace('+', ' ', urlencode($subject));
             $body = str_replace('+', ' ', urlencode($body));
@@ -71,7 +71,7 @@ class ServerController extends Controller
 
                 $email = $prof->email;
                 $subject = 'Vos informations de connexion à l\'application de réservation de salles.';
-                $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :mail\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
+                $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :$email\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
 
                 $subject = str_replace('+', ' ', urlencode($subject));
                 $body = str_replace('+', ' ', urlencode($body));

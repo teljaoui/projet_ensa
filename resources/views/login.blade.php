@@ -23,6 +23,16 @@
             <form action="{{ route('loginprofpost') }}" method="post">
                 @csrf
                 <h5>Bienvenue ! Connectez-vous pour réserver votre salle.</h5>
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <div class="form-group py-3">
                     <label for="" class="form-label">Email:</label>
                     <input type="email" placeholder="Email" class="form-control" name="email">
