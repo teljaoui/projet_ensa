@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prof;
 use App\Models\Salle;
+use App\Models\Tim;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -36,7 +37,7 @@ class AdminController extends Controller
     public function salles()
     {
         $salles = Salle::orderBy("name")->paginate(10);
-        return view('admin.salle.home' , compact('salles'));
+        return view('admin.salle.home', compact('salles'));
     }
 
     public function salleadd()
@@ -52,7 +53,8 @@ class AdminController extends Controller
 
     public function horaires()
     {
-        return view("admin.horaires.home");
+        $tims = Tim::orderBy('time')->paginate(10);
+        return view("admin.horaires.home" , compact('tims'));
     }
     public function horaireadd()
     {

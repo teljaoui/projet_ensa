@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Prof;
 use App\Models\Salle;
-use Illuminate\Auth\Events\Validated;
+use App\Models\Tim;
 use Illuminate\Http\Request;
+
 
 class ServerController extends Controller
 {
@@ -30,7 +31,7 @@ class ServerController extends Controller
 
             $email = $prof->email;
             $subject = 'Vos informations de connexion à l\'application de réservation de salles.';
-            $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail : $email\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
+            $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :mail\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
 
             $subject = str_replace('+', ' ', urlencode($subject));
             $body = str_replace('+', ' ', urlencode($body));
@@ -70,7 +71,7 @@ class ServerController extends Controller
 
                 $email = $prof->email;
                 $subject = 'Vos informations de connexion à l\'application de réservation de salles.';
-                $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail : $email\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
+                $body = "Bonjour,\n\nVoici vos informations de connexion :\n\nEmail :mail\nMot de passe : $password\n\nVeuillez vous connecter à votre compte en utilisant le lien suivant .\n\n http://example.com/login \n\nCordialement.";
 
                 $subject = str_replace('+', ' ', urlencode($subject));
                 $body = str_replace('+', ' ', urlencode($body));
@@ -116,7 +117,7 @@ class ServerController extends Controller
                 'ability' => $validatedata['ability']
             ]);
             return back()->with('success', 'la salle est ajouter avec succès');
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return back()->with('error', 'Une erreur est survenue lors l\' ajoute du salle');
         }
     }
@@ -138,7 +139,7 @@ class ServerController extends Controller
             ]);
             return redirect(route("salles"))->with('success', 'La salle a été modifiée avec succès.');
 
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return back()->with('error', 'Une erreur est survenue lors la modification du salle');
         }
     }
@@ -155,8 +156,41 @@ class ServerController extends Controller
 
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return back()->with('error', 'Une erreur est survenue lors la suppréssion du salle');
+        }
+    }
+
+    public function addtimepost(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                'time' => 'required|date_format:H:i'
+            ]);
+            $time = date('H:i', strtotime($validatedData['time']));
+
+            Tim::create([
+                'time' => $time
+            ]);
+            return redirect(route("horaires"))->with("success", "Horaire ajouter avec succès");
+        } catch (\Exception) {
+            return back()->with('error', 'Une erreur est survenue lors l\' ajoute du Horaire');
+        }
+    }
+    public function deletetime($id)
+    {
+        try {
+            $time = Tim::find($id);
+
+            if ($time) {
+                $time->delete();
+                return redirect()->route("horaires")->with('success', 'Horaire est supprimé avec succès');
+            } else {
+                return back()->with('error', ' du Horaire non trouvé');
+
+            }
+        } catch (\Exception) {
+            return back()->with('error', 'Une erreur est survenue lors la suppréssion  du Horaire');
         }
     }
 

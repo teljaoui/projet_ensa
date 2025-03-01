@@ -22,10 +22,20 @@
         <div class="main">
             <div class="container my-5">
                 <div class="client-top d-flex align-items-center justify-content-end">
-                    <a href="{{route("horaireadd")}}" class="button">Ajouter une Horaire</a>
+                    <a href="{{ route('horaireadd') }}" class="button">Ajouter une Horaire</a>
                 </div>
                 <div class="content">
                     <div class="table-responsive py-1 px-3">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         <table class="table align-middle ">
                             <thead>
                                 <tr>
@@ -34,14 +44,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                       <span>09:00</span>
-                                    </td>
-                                    <td class="text-end">
-                                        <a href="" class="btn-action"><i class="fas fa-trash text-danger"></i></a>
-                                    </td>
-                                </tr>
+                                @foreach ($tims as $tim)
+                                    <tr>
+                                        <td>
+                                            <span>{{ $tim->time }}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="{{ route('deletetime', ['id' => $tim->id]) }}"
+                                                class="btn-action confirmdelete"><i
+                                                    class="fas fa-trash text-danger "></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

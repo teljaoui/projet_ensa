@@ -59,3 +59,9 @@ Route::post('/upsallepost' , [ServerController::class , 'upsallepost'])->name('u
 Route::get('/deletesalle/{id}' , [ServerController::class , 'deletesalle'])->name('deletesalle');
 
 /*salles server  ends*/
+
+/*time */
+
+Route::post('addtimepost' , [ServerController::class , 'addtimepost'])->name('addtimepost');
+Route::get('/deletetime/{id}' , [ServerController::class , 'deletetime'])->name('deletetime');
+/*tims ends*/

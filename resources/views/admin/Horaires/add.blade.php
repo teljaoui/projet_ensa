@@ -22,13 +22,25 @@
         <div class="main">
             <div class="container my-5">
                 <div class="content">
-                    <form action="" class="py-3 px-3">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('addtimepost') }}" method="post" class="py-3 px-3">
+                        @csrf
                         <h5 class="text-center">Ajouter Une Horaire</h5>
                         <div class="row">
                             <div class="form-group col-lg-12 col-sm-12 col-md-12 mb-3">
                                 <label for="" class="form-label">Sélectionné une Horaire:</label>
-                                <input type="time" class="form-control" placeholder="Horaire" required>
-                            </div>              
+                                <input type="time" class="form-control" placeholder="Horaire" name="time"
+                                    required>
+                            </div>
                             <div class="col-12 text-end">
                                 <input type="submit" value="Enregistrer" class="button">
                                 <input type="reset" value="Annuler" class="reset">
