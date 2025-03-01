@@ -10,4 +10,9 @@ class Prof extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'email', 'phone_number', 'password'];
+
+    public function booking()
+    {
+        return $this->hasMany(Booking::class, 'id_prof');
+    }
 }

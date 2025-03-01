@@ -9,4 +9,8 @@ class Salle extends Model
 {
     use HasFactory;
     protected $fillable = ['name' , 'ability'];
+    public function booking()
+    {
+        return $this->hasMany(Booking::class, 'id_salle');
+    }
 }

@@ -11,4 +11,13 @@ class Tim extends Model
     protected $fillable = [
         'time'
     ];
+    public function bookingsStart()
+    {
+        return $this->hasMany(Booking::class, 'time_start');
+    }
+
+    public function bookingsEnd()
+    {
+        return $this->hasMany(Booking::class, 'time_fin');
+    }
 }
