@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Prof;
 use App\Models\Salle;
 use App\Models\Tim;
+use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
+use Session;
 
 class AdminController extends Controller
 {
@@ -13,6 +16,36 @@ class AdminController extends Controller
     public function login_admin()
     {
         return view("admin.login");
+    }
+    public function loginpost(Request $request)
+    {
+        $user = User::where('email', '=', 'admin')->first();
+
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->id);
+                return redirect(route("admin"))->with("success", "Bienvenue de retour Admin, la connexion a réussi.");
+            } else {
+                return back()->withErrors(
+                    [
+                        'email' => "Email ou mot de passe incorrect."
+                    ]
+                )->onlyInput('email');
+            }
+        } else {
+            return back()->withErrors([
+                'email' => "Email introuvable"
+            ])->withInput();
+        }
+    }
+    public function logout()
+    {
+        if (Session::has('loginId')) {
+            Session::forget('loginId');
+            Session::flush();
+        }
+
+        return redirect(route('login_admin'))->with('success', 'Vous avez été déconnecté avec succès.');
     }
     public function homeadmin()
     {
@@ -54,7 +87,7 @@ class AdminController extends Controller
     public function horaires()
     {
         $tims = Tim::orderBy('time')->paginate(10);
-        return view("admin.horaires.home" , compact('tims'));
+        return view("admin.horaires.home", compact('tims'));
     }
     public function horaireadd()
     {

@@ -18,20 +18,28 @@
     <div class="container">
         <div class="form-login">
             <div class="text-center pb-4">
-                <img src="{{asset('assets/img/logo.png')}}" alt="">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="">
             </div>
-            <form action="">
+            <form action="{{ route('loginpost') }}" method="post">
+                @csrf
                 <h5>Bienvenue ! Admin.</h5>
                 <div class="form-group py-3">
                     <label for="" class="form-label">Email:</label>
-                    <input type="email" placeholder="Email" class="form-control">
+                    <input type="text" placeholder="Email" class="form-control" name="email">
                 </div>
                 <div class="form-group py-3">
                     <label for="" class="form-label">Password:</label>
-                    <input type="password" placeholder="Mot de passe" class="form-control">
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Mot de passe" name="password"
+                            class="form-control">
+                        <button type="button" class="button" onclick="togglePassword()">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </div>
+
                 </div>
                 <div class="form-group py-3">
-                    <input type="submit"  class="export" value="Se Connecter">
+                    <input type="submit" class="export" value="Se Connecter">
                 </div>
             </form>
         </div>
@@ -39,6 +47,22 @@
 
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script>
+        function togglePassword() {
+            let passwordInput = document.getElementById("password");
+            let icon = document.querySelector(".btn-secondary i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

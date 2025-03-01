@@ -112,12 +112,6 @@
             }
         }
 
-        function copyText(elementId) {
-            let text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Copié !");
-            });
-        }
     </script>
 
 </body>

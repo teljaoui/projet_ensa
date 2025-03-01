@@ -21,6 +21,16 @@
         </aside>
         <div class="main">
             <div class="container my-5">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <div class="content">
                     <div class="table-responsive py-1 px-3">
                         <table class="table align-middle ">
@@ -59,7 +69,8 @@
                                         <span>15:00</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="" class="btn-action"><i class="fas fa-trash text-danger"></i></a>
+                                        <a href="" class="btn-action"><i
+                                                class="fas fa-trash text-danger"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
