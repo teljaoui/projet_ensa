@@ -30,7 +30,7 @@
                                 <input type="time" class="form-control" placeholder="Horaire" required>
                             </div>              
                             <div class="col-12 text-end">
-                                <input type="submit" value="Enregister" class="button">
+                                <input type="submit" value="Enregistrer" class="button">
                                 <input type="reset" value="Annuler" class="reset">
                             </div>
                         </div>

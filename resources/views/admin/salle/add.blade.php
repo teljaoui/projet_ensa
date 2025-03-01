@@ -22,19 +22,32 @@
         <div class="main">
             <div class="container my-5">
                 <div class="content">
-                    <form action="" class="py-3 px-3">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('addsallepost') }}" method="post" class="py-3 px-3">
+                        @csrf
                         <h5 class="text-center">Ajouter Une salle</h5>
                         <div class="row">
                             <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
-                                <label for="" class="form-label">Nom du salle:</label>
-                                <input type="text" class="form-control" placeholder="Nom du salle" required>
+                                <label for="" class="form-label">Nom de la salle:</label>
+                                <input type="text" class="form-control" placeholder="Nom du salle" name="name"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
                                 <label for="" class="form-label">Capacité:</label>
-                                <input type="number" class="form-control" placeholder="Capacité" required>
-                            </div>                
+                                <input type="number" class="form-control" placeholder="Capacité" name="ability"
+                                    required>
+                            </div>
                             <div class="col-12 text-end">
-                                <input type="submit" value="Enregister" class="button">
+                                <input type="submit" value="Enregistrer" class="button">
                                 <input type="reset" value="Annuler" class="reset">
                             </div>
                         </div>

@@ -32,7 +32,7 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('/salles')->group(function () {
         Route::get('/', [AdminController::class, 'salles'])->name("salles");
         Route::get('/add', [AdminController::class, 'salleadd'])->name("salleadd");
-        Route::get('/update', [AdminController::class, 'salleup'])->name("salleup");
+        Route::get('/update/{id}', [AdminController::class, 'salleup'])->name("salleup");
     });
     Route::prefix('horaire')->group(function () {
         Route::get('/', [AdminController::class, 'horaires'])->name("horaires");
@@ -51,3 +51,11 @@ Route::post('/upprofpost', [ServerController::class, 'upprofpost'])->name('uppro
 Route::get('/deleteprof/{id}', [ServerController::class, 'deleteprof'])->name('deleteprof');
 
 /*prof server  ends*/
+
+/*salles server */
+
+Route::post('/addsallepost' , [ServerController::class , 'addsallepost'])->name('addsallepost');
+Route::post('/upsallepost' , [ServerController::class , 'upsallepost'])->name('upsallepost');
+Route::get('/deletesalle/{id}' , [ServerController::class , 'deletesalle'])->name('deletesalle');
+
+/*salles server  ends*/

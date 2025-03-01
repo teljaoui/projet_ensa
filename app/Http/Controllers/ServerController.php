@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prof;
+use App\Models\Salle;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ServerController extends Controller
@@ -39,7 +41,7 @@ class ServerController extends Controller
                 ->with('mailto', $mailto);
 
         } catch (\Exception) {
-            return back()->with('error', 'Une erreur est survenue lors de l\'ajout du Professeur' );
+            return back()->with('error', 'Une erreur est survenue lors de l\'ajout du Professeur');
         }
     }
 
@@ -81,7 +83,7 @@ class ServerController extends Controller
                 return back()->with('error', 'Professeur non trouvé');
             }
         } catch (\Exception) {
-            return back()->with('error', 'Une erreur est survenue lors de la modification du Professeur' );
+            return back()->with('error', 'Une erreur est survenue lors de la modification du Professeur');
         }
     }
 
@@ -97,9 +99,65 @@ class ServerController extends Controller
                 return back()->with('error', 'Professeur non trouvé');
             }
         } catch (\Exception) {
-            return back()->with('error', 'Une erreur est survenue lors de la suppréssion du Professeur' );
+            return back()->with('error', 'Une erreur est survenue lors de la suppréssion du Professeur');
         }
     }
 
+    public function addsallepost(Request $request)
+    {
+        try {
+            $validatedata = $request->validate([
+                'name' => 'required|string',
+                'ability' => 'required|integer'
+            ]);
+
+            Salle::create([
+                'name' => $validatedata['name'],
+                'ability' => $validatedata['ability']
+            ]);
+            return back()->with('success', 'la salle est ajouter avec succès');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Une erreur est survenue lors l\' ajoute du salle');
+        }
+    }
+
+    public function upsallepost(Request $request)
+    {
+        try {
+            $salle = Salle::find($request->id);
+            if (!$salle) {
+                return back()->with('error', 'Salle non trouvée.');
+            }
+            $validated = $request->validate([
+                'name' => 'required|string',
+                'ability' => 'required|integer'
+            ]);
+            $salle->update([
+                'name' => $validated['name'],
+                'ability' => $validated['ability']
+            ]);
+            return redirect(route("salles"))->with('success', 'La salle a été modifiée avec succès.');
+
+        } catch (\Exception $e) {
+            return back()->with('error', 'Une erreur est survenue lors la modification du salle');
+        }
+    }
+    public function deletesalle($id)
+    {
+        try {
+            $salle = Salle::find($id);
+
+            if ($salle) {
+                $salle->delete();
+                return redirect()->route("salles")->with('success', 'la salle est supprimé avec succès');
+            } else {
+                return back()->with('error', 'la selle non trouvé');
+
+            }
+
+        } catch (\Exception $e) {
+            return back()->with('error', 'Une erreur est survenue lors la suppréssion du salle');
+        }
+    }
 
 }

@@ -22,34 +22,52 @@
         <div class="main">
             <div class="container my-5">
                 <div class="client-top d-flex align-items-center justify-content-end">
-                    <a href="{{route("salleadd")}}" class="button">Ajouter une Salle</a>
+                    <a href="{{ route('salleadd') }}" class="button">Ajouter une Salle</a>
                 </div>
                 <div class="content">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="table-responsive py-1 px-3">
                         <table class="table align-middle ">
                             <thead>
                                 <tr>
                                     <th>Salle</th>
                                     <th class="text-center">Capacité</th>
-                                    <th class="text-center">ACTION</th>
+                                    <th class="text-end">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                       <span>salle 01</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span>25</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{route("salleup")}}" class="btn-action edite"><i class="fas fa-edit"></i></a>
-                                        <a href="" class="btn-action"><i class="fas fa-trash text-danger"></i></a>
-                                    </td>
-                                </tr>
+                                @foreach ($salles as $salle)
+                                    <tr>
+                                        <td>
+                                            <span>{{ $salle->name }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span>{{ $salle->ability }}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="{{ route('salleup', ['id' => $salle->id]) }}"
+                                                class="btn-action edite"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('deletesalle', ['id' => $salle->id]) }}"
+                                                class="btn-action confirmdelete"><i
+                                                    class="fas fa-trash text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="col-12">
+                    {{ $salles->links() }}
                 </div>
             </div>
         </div>
