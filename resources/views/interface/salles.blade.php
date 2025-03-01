@@ -18,71 +18,21 @@
     <div class="container py-5">
         <h4>Liste des salles disponible</h4>
         <div class="row my-5 salle-liste">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="salle d-flex align-items-center justify-content-between">
-                    <div class="left">
-                        <h6>Salle 15</h6>
-                        <p>Capacité : 25</p>
-                    </div>
-                    <div class="right d-flex align-items-center ">
-                        <a href="#" class="button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="salle d-flex align-items-center justify-content-between">
-                    <div class="left">
-                        <h6>Salle 15</h6>
-                        <p>Capacité : 25</p>
-                    </div>
-                    <div class="right d-flex align-items-center ">
-                        <a href="#" class="button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+            @foreach ($salles as $salle)
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="salle d-flex align-items-center justify-content-between">
+                        <div class="left">
+                            <h6>{{$salle->name}}</h6>
+                            <p>Capacité : {{$salle->ability}}</p>
+                        </div>
+                        <div class="right d-flex align-items-center ">
+                            <a href="{{route("salle" , ['id'=>$salle->id])}}" class="button">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="salle d-flex align-items-center justify-content-between">
-                    <div class="left">
-                        <h6>Salle 15</h6>
-                        <p>Capacité : 25</p>
-                    </div>
-                    <div class="right d-flex align-items-center ">
-                        <a href="#" class="button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="salle d-flex align-items-center justify-content-between">
-                    <div class="left">
-                        <h6>Salle 15</h6>
-                        <p>Capacité: <span>25</span></p>
-                    </div>
-                    <div class="right d-flex align-items-center ">
-                        <a href="#" class="button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="salle d-flex align-items-center justify-content-between">
-                    <div class="left">
-                        <h6>Salle 15</h6>
-                        <p>Capacité : 25</p>
-                    </div>
-                    <div class="right d-flex align-items-center ">
-                        <a href="#" class="button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <script src="{{ asset('assets/js/script.js') }}"></script>

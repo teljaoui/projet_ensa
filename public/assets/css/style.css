@@ -646,6 +646,7 @@ header .header {
     font-size: 20px;
     font-weight: 500;
     color: var(--color-343a40);
+    text-transform: capitalize;
 }
 
 .salle p,
@@ -670,6 +671,7 @@ header .header {
     padding: 15px;
     font-weight: 700;
     border-radius: 8px;
+    text-transform: capitalize;
 }
 
 .salle-details .details h6 {

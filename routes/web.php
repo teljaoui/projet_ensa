@@ -18,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', [InerfaceController::class, 'home'])->name("home");
 Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles");
-Route::get('/salle', [InerfaceController::class, 'salle'])->name("salle");
+Route::get('/salle/{id}', [InerfaceController::class, 'salle'])->name("salle");
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/loginprofpost' , [AuthController::class , 'loginprofpost'])->name('loginprofpost');
+
+
 
 Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function () {
     Route::get('/', [AdminController::class, 'homeadmin'])->name("admin");
@@ -41,7 +46,7 @@ Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function
     });
 });
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+
 
 /*Admin auth */
 Route::get('/admin/login', [AdminController::class, 'login_admin'])->name("login_admin");

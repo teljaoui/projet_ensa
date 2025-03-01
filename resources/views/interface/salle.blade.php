@@ -17,30 +17,20 @@
 
     <div class="container py-5">
         <div class="salle-details">
-            <h5>Salle 01</h5>   
+            <h5>{{ $salle->name }}</h5>
             <div class="details py-4">
                 <h6>Lun - 23 sep</h6>
                 <div class="horaires">
                     <table>
-                        <tr>
-                            <td><span>09:00</span></td>
-                            <td class="active"></td>
-                        </tr>
-                        <tr>
-                            <td><span>09:00</span></td>
-                            <td class=""></td>
-                        </tr>
-                        <tr>
-                            <td><span>09:00</span></td>
-                            <td class="active"></td>
-                        </tr>
-                        <tr>
-                            <td><span>09:00</span></td>
-                            <td class="active"></td>
-                        </tr>
+                        @foreach ($tims as $tim)
+                            <tr>
+                                <td><span>{{ $tim->time }}</span></td>
+                                <td class="active"></td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
-            </div> 
+            </div>
             <div class="reservation">
                 <h6>Pour réserver une salle, sélectionnez une heure disponible.</h6>
                 <form action="" class="py-3">
@@ -49,18 +39,16 @@
                             <label for="">Heure de début</label>
                             <select class="form-select">
                                 <option value="" selected disabled>Sélectionner une Heure</option>
-                                <option value="1">09:00</option>
-                                <option value="2">09:00</option>
-                                <option value="3">09:00</option>
+                                @foreach ($tims as $tim)
+                                    <option value="{{ $tim->id }}">{{ $tim->time }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-lg-6 col-sm-12 col-md-12 mb-3">
                             <label for="">Heure de Fin</label>
                             <select class="form-select">
                                 <option value="" selected disabled>Sélectionner une Heure</option>
-                                <option value="1">09:00</option>
-                                <option value="2">09:00</option>
-                                <option value="3">09:00</option>
+                                <option value="{{ $tim->id }}">{{ $tim->time }}</option>
                             </select>
                         </div>
                         <div class="col-12 text-center">
@@ -69,7 +57,7 @@
                     </div>
                 </form>
             </div>
-        </div>        
+        </div>
     </div>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -79,6 +67,3 @@
 </body>
 
 </html>
-
-
-
