@@ -34,6 +34,7 @@ class AdminController extends Controller
 
     public function salles()
     {
+        
         return view('admin.salle.home');
     }
 

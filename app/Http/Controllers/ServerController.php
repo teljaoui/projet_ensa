@@ -13,7 +13,7 @@ class ServerController extends Controller
             $validated = $request->validate([
                 'name' => 'required|string',
                 'email' => 'required|string|email|unique:profs,email',
-                'phone_number' => 'required|string',
+                'phone_number' => 'required|string|digits:10',
                 'password' => 'required|string',
             ]);
 
@@ -38,8 +38,8 @@ class ServerController extends Controller
             return redirect()->route('profadd')->with('success', 'Professeur ajouté avec succès.')
                 ->with('mailto', $mailto);
 
-        } catch (\Exception $e) {
-            return back()->with('error', 'Une erreur est survenue lors de l\'ajout du Professeur' . $e);
+        } catch (\Exception) {
+            return back()->with('error', 'Une erreur est survenue lors de l\'ajout du Professeur' );
         }
     }
 
@@ -53,7 +53,7 @@ class ServerController extends Controller
                 $validated = $request->validate([
                     'name' => 'required|string',
                     'email' => 'required|string|email|unique:profs,email,' . $prof->id,
-                    'phone_number' => 'required|string',
+                    'phone_number' => 'required|string|digits:10',
                     'password' => 'required|string',
                 ]);
 
@@ -80,8 +80,8 @@ class ServerController extends Controller
             } else {
                 return back()->with('error', 'Professeur non trouvé');
             }
-        } catch (\Exception $e) {
-            return back()->with('error', 'Une erreur est survenue lors de la modification du Professeur' . $e);
+        } catch (\Exception) {
+            return back()->with('error', 'Une erreur est survenue lors de la modification du Professeur' );
         }
     }
 
@@ -96,9 +96,8 @@ class ServerController extends Controller
             } else {
                 return back()->with('error', 'Professeur non trouvé');
             }
-
-        } catch (\Exception $e) {
-            return back()->with('error', 'Une erreur est survenue lors de la suppréssion du Professeur' . $e);
+        } catch (\Exception) {
+            return back()->with('error', 'Une erreur est survenue lors de la suppréssion du Professeur' );
         }
     }
 
