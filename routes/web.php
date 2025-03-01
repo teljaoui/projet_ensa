@@ -41,10 +41,13 @@ Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function
         Route::get('/add', [AdminController::class, 'salleadd'])->name("salleadd");
         Route::get('/update/{id}', [AdminController::class, 'salleup'])->name("salleup");
     });
-    Route::prefix('horaire')->group(function () {
+    Route::prefix('/horaire')->group(function () {
         Route::get('/', [AdminController::class, 'horaires'])->name("horaires");
         Route::get('/add', [AdminController::class, 'horaireadd'])->name("horaireadd");
     });
+
+    Route::get('/password', [AdminController::class, 'password'])->name("admin_password");
+
 });
 
 
@@ -53,6 +56,8 @@ Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function
 Route::get('/admin/login', [AdminController::class, 'login_admin'])->name("login_admin");
 Route::post('/loginpost', [AdminController::class, 'loginpost'])->name('loginpost');
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout_admin');
+Route::post('/passwordpost', [AdminController::class, 'passwordpost'])->name("passwordpost");
+
 /*Admin auth ends */
 
 /*prof server */

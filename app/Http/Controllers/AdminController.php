@@ -47,6 +47,33 @@ class AdminController extends Controller
 
         return redirect(route('login_admin'))->with('success', 'Vous avez été déconnecté avec succès.');
     }
+
+    public function passwordpost(Request $request)
+    {
+        try {
+            $validatedata = $request->validate([
+                'password' => 'required|string|confirmed'
+            ]);
+    
+            $admin = User::where('email', '=', 'admin')->first();
+            
+            if ($admin) {
+                $admin->update([
+                    'password' => bcrypt($validatedata['password'])
+                ]);
+    
+                return redirect(route('admin_password'))->with('success', 'Le mot de passe a été mis à jour avec succès');
+            }
+    
+            return back()->with("error", "L'utilisateur n'a pas été trouvé");
+        } catch (\Exception $e) {
+            
+            return back()->with("error", "Une erreur est survenue lors de la modification du mot de passe. Veuillez réessayer.");
+        }
+    }
+    
+    
+
     public function homeadmin()
     {
         return view("admin.home");
@@ -96,5 +123,9 @@ class AdminController extends Controller
     public function horaireup()
     {
         return view("admin.horaires.update");
+    }
+    public function password()
+    {
+        return view('admin.password');
     }
 }
