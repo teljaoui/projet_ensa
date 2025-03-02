@@ -107,6 +107,18 @@ li {
     opacity: 0.8;
 }
 
+.back_date{
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 550;
+    color: var(--color-0099fb);
+    gap: 10px;
+    transition: 0.3s ease-in-out;
+}
+.back_date:hover{
+    color: var(--color-6c757d);
+}
 
 .gap-10 {
     gap: 10px;

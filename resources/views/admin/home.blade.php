@@ -41,6 +41,7 @@
                                     <th class="text-center">Date</th>
                                     <th class="text-center">Heure Début</th>
                                     <th class="text-center">Heure Fin</th>
+                                    <th class="text-center">Durée</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -71,6 +72,15 @@
                                             <span>{{ $booking->timeFin->time }}</span>
                                         </td>
                                         <td class="text-center">
+                                            @php
+                                                $start = \Carbon\Carbon::createFromFormat('H:i', $booking->timeStart->time);
+                                                $end = \Carbon\Carbon::createFromFormat('H:i', $booking->timeFin->time);
+                                                $duration = $start->diff($end);  
+                                            @endphp
+                                            <span>{{ $duration->h }} h {{ $duration->i }} min</span>
+                                        </td>
+                                        
+                                        <td class="text-center">
                                             <a href="{{ route('delete_booking', ['id' => $booking->id]) }}"
                                                 class="btn-action confirmdelete"><i
                                                     class="fas fa-trash text-danger"></i></a>
@@ -80,6 +90,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="col-12">
+                    {{$bookings->links()}}
                 </div>
             </div>
         </div>

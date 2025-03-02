@@ -77,7 +77,7 @@ class AdminController extends Controller
 
     public function homeadmin()
     {
-        $bookings = Booking::with(['timeStart' , 'timeFin' , 'prof' , 'salle'])->get();
+        $bookings = Booking::with(['timeStart' , 'timeFin' , 'prof' , 'salle'])->paginate(8);
         return view("admin.home" , compact('bookings'));
     }
 

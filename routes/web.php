@@ -29,8 +29,9 @@ Route::post('/loginprofpost', [AuthController::class, 'loginprofpost'])->name('l
 /*booking */
 
 Route::post('/select_date' , [InerfaceController::class  , 'select_date'])->name('select_date');
+Route::post('/booking_post' , [InerfaceController::class , 'booking_post'])->name('booking_post');
 Route::get('/delete_booking/{id}', [InerfaceController::class , 'delete_booking'])->name('delete_booking');
-
+Route::get('/back_date' , [InerfaceController::class , 'back_date'])->name('back_date');
 
 /*booking ends*/
 
