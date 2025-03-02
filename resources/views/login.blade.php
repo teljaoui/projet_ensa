@@ -14,47 +14,45 @@
 </head>
 
 <body>
+        <div class="container">
+            <div class="form-login">
+                <div class="text-center pb-4">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                </div>
+                <form action="{{ route('loginprofpost') }}" method="post">
+                    @csrf
+                    <h5>Bienvenue ! Connectez-vous pour réserver votre salle.</h5>
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <div class="form-group py-3">
+                        <label for="" class="form-label">Email:</label>
+                        <input type="email" placeholder="Email" class="form-control" name="email">
+                    </div>
+                    <div class="form-group py-3">
+                        <label for="" class="form-label">Password:</label>
+                        <div class="input-group">
+                            <input type="password" id="password" placeholder="Mot de passe" name="password"
+                                class="form-control">
+                            <button type="button" class="export" onclick="togglePassword()">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="submit" class="button" value="Se Connecter">
 
-    <div class="container">
-        <div class="form-login">
-            <div class="text-center pb-4">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    </div>
+                </form>
             </div>
-            <form action="{{ route('loginprofpost') }}" method="post">
-                @csrf
-                <h5>Bienvenue ! Connectez-vous pour réserver votre salle.</h5>
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                <div class="form-group py-3">
-                    <label for="" class="form-label">Email:</label>
-                    <input type="email" placeholder="Email" class="form-control" name="email">
-                </div>
-                <div class="form-group py-3">
-                    <label for="" class="form-label">Password:</label>
-                    <div class="input-group">
-                        <input type="password" id="password" placeholder="Mot de passe" name="password"
-                            class="form-control">
-                        <button type="button" class="export" onclick="togglePassword()">
-                            <i class="fa fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="form-group py-3">
-                    <input type="submit" class="button" value="Se Connecter">
-
-                </div>
-            </form>
         </div>
-    </div>
-
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script>

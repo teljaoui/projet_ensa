@@ -45,34 +45,38 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center info">
-                                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar"
-                                                class="avatar me-3">
-                                            <div>
-                                                <a href="maileto:">Salma Test</a><br>
-                                                <span>salmatest@gmail.com</span>
+                                @foreach ($bookings as $booking)
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center info">
+                                                <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar"
+                                                    class="avatar me-3">
+                                                <div>
+                                                    <a
+                                                        href="maileto:{{ $booking->prof->email }}">{{ $booking->prof->name }}</a><br>
+                                                    <span>{{ $booking->prof->email }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="badge-info">salle 1</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span>28-05-2025</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span>14:00</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span>15:00</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="" class="btn-action"><i
-                                                class="fas fa-trash text-danger"></i></a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge-info">{{ $booking->salle->name }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span>{{ $booking->date_booking }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span>{{ $booking->timeStart->time }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span>{{ $booking->timeFin->time }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ route('delete_booking', ['id' => $booking->id]) }}"
+                                                class="btn-action confirmdelete"><i
+                                                    class="fas fa-trash text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

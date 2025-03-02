@@ -19,16 +19,29 @@
         <div class="salle-details">
             <h5>{{ $salle->name }}</h5>
             <div class="details py-4">
-                <h6>Lun - 23 sep</h6>
+                <h6>{{ \Carbon\Carbon::parse(session('date_select'))->locale('fr')->translatedFormat('D - d M') }}</h6>
                 <div class="horaires">
                     <table>
                         @foreach ($tims as $tim)
+                            @php
+                                $isBooked = false;
+                            @endphp
+
+                            @foreach ($bookedTimeSlots as $slot)
+                                @if ($tim->id >= $slot['start'] && $tim->id < $slot['end'])
+                                    @php
+                                        $isBooked = true;
+                                    @endphp
+                                @endif
+                            @endforeach
+
                             <tr>
                                 <td><span>{{ $tim->time }}</span></td>
-                                <td class="active"></td>
+                                <td class="{{ $isBooked ? 'active' : '' }}"></td>
                             </tr>
                         @endforeach
                     </table>
+
                 </div>
             </div>
             <div class="reservation">

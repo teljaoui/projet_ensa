@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Prof;
 use App\Models\Salle;
 use App\Models\Tim;
@@ -76,7 +77,8 @@ class AdminController extends Controller
 
     public function homeadmin()
     {
-        return view("admin.home");
+        $bookings = Booking::with(['timeStart' , 'timeFin' , 'prof' , 'salle'])->get();
+        return view("admin.home" , compact('bookings'));
     }
 
     public function profview()
@@ -119,10 +121,6 @@ class AdminController extends Controller
     public function horaireadd()
     {
         return view("admin.horaires.add");
-    }
-    public function horaireup()
-    {
-        return view("admin.horaires.update");
     }
     public function password()
     {

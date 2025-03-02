@@ -21,11 +21,18 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [InerfaceController::class, 'home'])->name("home")->middleware(LoginProfMiddleware::class);
-Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles")->middleware(LoginProfMiddleware::class);
+Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles_interface")->middleware(LoginProfMiddleware::class);
 Route::get('/salle/{id}', [InerfaceController::class, 'salle'])->name("salle")->middleware(LoginProfMiddleware::class);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/loginprofpost', [AuthController::class, 'loginprofpost'])->name('loginprofpost');
 
+/*booking */
+
+Route::post('/select_date' , [InerfaceController::class  , 'select_date'])->name('select_date');
+Route::get('/delete_booking/{id}', [InerfaceController::class , 'delete_booking'])->name('delete_booking');
+
+
+/*booking ends*/
 
 
 Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function () {
@@ -49,7 +56,6 @@ Route::prefix('/admin')->middleware(LoginAdminMiddleware::class)->group(function
     Route::get('/password', [AdminController::class, 'password'])->name("admin_password");
 
 });
-
 
 
 /*Admin auth */
