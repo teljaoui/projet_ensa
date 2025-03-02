@@ -25,6 +25,7 @@ Route::get('/salles', [InerfaceController::class, 'salles'])->name("salles_inter
 Route::get('/salle/{id}', [InerfaceController::class, 'salle'])->name("salle")->middleware(LoginProfMiddleware::class);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/loginprofpost', [AuthController::class, 'loginprofpost'])->name('loginprofpost');
+Route::get('/prof_logout' , [InerfaceController::class , 'prof_logout'])->name('prof_logout');
 
 /*booking */
 

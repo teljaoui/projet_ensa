@@ -18,6 +18,8 @@
     <div class="container py-5">
         <div class="salle-details">
             <h5>{{ $salle->name }}</h5>
+            <a href="{{ route('salles_interface') }}" class="back_date"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i><span>liste des salles</span></a>
             <a href="{{ route('back_date') }}" class="back_date"><i class="fa fa-arrow-left"
                     aria-hidden="true"></i><span>Sélectionner une autre date</span></a>
             <div class="details py-4">

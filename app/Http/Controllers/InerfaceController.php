@@ -114,10 +114,9 @@ class InerfaceController extends Controller
 
             return redirect()->route('salle', ['id' => $request->id])->with('success', 'Réservation effectuée avec succès.');
         } catch (\Exception $e) {
-            return back()->with('error', "Une erreur est survenue : ");
+            return back()->with('error', "Une erreur est survenue, veuillez choisir des horaires qui n'ont pas encore été sélectionnés");
         }
     }
-
 
     public function delete_booking($id)
     {
@@ -134,4 +133,11 @@ class InerfaceController extends Controller
         }
     }
 
+    public function prof_logout(){
+        if(Session::has('loginIdProf') || Session::has('date_select')){
+            Session::pull('loginIdProf') ;
+            Session::pull('date_select');
+        }
+        return redirect(route('home'))->with("Vous avez déconnecter avec succès");
+    }
 }

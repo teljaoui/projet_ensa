@@ -38,7 +38,7 @@
         </a>
     </li>
     <li class="sidebar-item">
-        <a href="{{ route('logout_admin') }}" class="sidebar-link">
+        <a href="{{ route('logout_admin') }}" class="sidebar-link" >
             <i class="fa-solid fa-right-from-bracket"></i>
             <span>Se déconnecter</span>
         </a>
