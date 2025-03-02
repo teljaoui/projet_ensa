@@ -21,6 +21,15 @@
         </aside>
         <div class="main">
             <div class="container my-5">
+                <div class="client-top d-flex align-items-center justify-content-end my-1">
+                    <form action="{{route("search_date")}}" method="POST" class="d-flex align-items-center gap-10">
+                        @csrf
+                        <div class="form-group">
+                            <input type="date" class="form-control"  name="date_select" required>
+                        </div>
+                        <button type="submit" class="export"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -29,6 +38,11 @@
                 @if (session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
+                    </div>
+                @endif
+                @if (session('warning'))
+                    <div class="alert alert-warning">
+                        {{ session('warning') }}
                     </div>
                 @endif
                 <div class="content">
@@ -73,13 +87,16 @@
                                         </td>
                                         <td class="text-center">
                                             @php
-                                                $start = \Carbon\Carbon::createFromFormat('H:i', $booking->timeStart->time);
+                                                $start = \Carbon\Carbon::createFromFormat(
+                                                    'H:i',
+                                                    $booking->timeStart->time,
+                                                );
                                                 $end = \Carbon\Carbon::createFromFormat('H:i', $booking->timeFin->time);
-                                                $duration = $start->diff($end);  
+                                                $duration = $start->diff($end);
                                             @endphp
                                             <span>{{ $duration->h }} h {{ $duration->i }} min</span>
                                         </td>
-                                        
+
                                         <td class="text-center">
                                             <a href="{{ route('delete_booking', ['id' => $booking->id]) }}"
                                                 class="btn-action confirmdelete"><i
@@ -92,7 +109,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    {{$bookings->links()}}
+                    {{ $bookings->links() }}
                 </div>
             </div>
         </div>

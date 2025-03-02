@@ -55,32 +55,35 @@ class AdminController extends Controller
             $validatedata = $request->validate([
                 'password' => 'required|string|confirmed'
             ]);
-    
+
             $admin = User::where('email', '=', 'admin')->first();
-            
+
             if ($admin) {
                 $admin->update([
                     'password' => bcrypt($validatedata['password'])
                 ]);
-    
+
                 return redirect(route('admin_password'))->with('success', 'Le mot de passe a été mis à jour avec succès');
             }
-    
+
             return back()->with("error", "L'utilisateur n'a pas été trouvé");
         } catch (\Exception $e) {
-            
+
             return back()->with("error", "Une erreur est survenue lors de la modification du mot de passe. Veuillez réessayer.");
         }
     }
-    
-    
+
+
 
     public function homeadmin()
     {
-        $bookings = Booking::with(['timeStart' , 'timeFin' , 'prof' , 'salle'])->paginate(8);
-        return view("admin.home" , compact('bookings'));
-    }
+        $today = \Carbon\Carbon::today();
+        $bookings = Booking::with(['timeStart', 'timeFin', 'prof', 'salle'])
+            ->whereDate('date_booking', '=', $today)
+            ->paginate(8);
 
+        return view("admin.home", compact('bookings'));
+    }
     public function profview()
     {
         $profs = Prof::paginate(9);
@@ -126,4 +129,24 @@ class AdminController extends Controller
     {
         return view('admin.password');
     }
+
+    public function search_date(Request $request)
+    {
+        try {
+            $date_select = $request->date_select;
+            $bookings = Booking::with(['timeStart', 'timeFin', 'prof', 'salle'])
+                ->whereDate('date_booking', '=', $date_select)
+                ->paginate(8);
+            if ($bookings->isEmpty()) {
+                return redirect(route('admin'))->with('warning', 'Aucune réservation trouvée à cette date');
+            }
+
+            return view("admin.home", compact('bookings'))
+                ->with('success', 'Voici les résultats de la recherche pour la date ' . $date_select);
+        } catch (\Exception $e) {
+            return back()->with('error', 'Une erreur est survenue : ' . $e->getMessage());
+        }
+    }
+
+
 }

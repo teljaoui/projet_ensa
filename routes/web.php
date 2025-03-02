@@ -32,6 +32,7 @@ Route::post('/select_date' , [InerfaceController::class  , 'select_date'])->name
 Route::post('/booking_post' , [InerfaceController::class , 'booking_post'])->name('booking_post');
 Route::get('/delete_booking/{id}', [InerfaceController::class , 'delete_booking'])->name('delete_booking');
 Route::get('/back_date' , [InerfaceController::class , 'back_date'])->name('back_date');
+Route::post('/search_date' , [AdminController::class , 'search_date'])->name('search_date');
 
 /*booking ends*/
 

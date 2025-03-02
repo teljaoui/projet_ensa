@@ -618,7 +618,7 @@ header .header {
     font-size: 1rem;
     color: var(--color-212529);
 }
-
+.client-top .form-control,
 .content .form-control,
 .content .form-select,
 .reservation .form-control,
@@ -630,7 +630,7 @@ header .header {
     color: var(--color-6c757d);
     transition: 0.5s ease-in-out;
 }
-
+.client-top .form-control:focus,
 .content .form-control:focus,
 .content .form-select:focus,
 .reservation .form-control:focus,

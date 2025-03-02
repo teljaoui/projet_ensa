@@ -33,6 +33,9 @@
                         {{ session('error') }}
                     </div>
                 @endif
+                @error('email')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
                 <div class="form-group py-3">
                     <label for="" class="form-label">Email:</label>
                     <input type="text" placeholder="Email" class="form-control" name="email">
@@ -46,7 +49,6 @@
                             <i class="fa fa-eye"></i>
                         </button>
                     </div>
-
                 </div>
                 <div class="form-group py-3">
                     <input type="submit" class="export" value="Se Connecter">
