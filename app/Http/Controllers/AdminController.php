@@ -134,15 +134,17 @@ class AdminController extends Controller
     {
         try {
             $date_select = $request->date_select;
+
             $bookings = Booking::with(['timeStart', 'timeFin', 'prof', 'salle'])
                 ->whereDate('date_booking', '=', $date_select)
                 ->paginate(8);
-            if ($bookings->isEmpty()) {
-                return redirect(route('admin'))->with('warning', 'Aucune réservation trouvée à cette date');
-            }
 
-            return view("admin.home", compact('bookings'))
-                ->with('success', 'Voici les résultats de la recherche pour la date ' . $date_select);
+            if ($bookings->isEmpty()) {
+                return back()->with('warning', 'Aucune réservation trouvée pour la date ' . $date_select . '.');
+            }
+            session()->flash('success', 'Voici la liste des réservations pour la date ' . $date_select . '.');
+            return view('admin.home', compact('bookings'));
+
         } catch (\Exception $e) {
             return back()->with('error', 'Une erreur est survenue : ' . $e->getMessage());
         }

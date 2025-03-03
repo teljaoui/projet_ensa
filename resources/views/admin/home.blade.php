@@ -22,10 +22,10 @@
         <div class="main">
             <div class="container my-5">
                 <div class="client-top d-flex align-items-center justify-content-end my-1">
-                    <form action="{{route("search_date")}}" method="POST" class="d-flex align-items-center gap-10">
+                    <form action="{{ route('search_date') }}" method="POST" class="d-flex align-items-center gap-10">
                         @csrf
                         <div class="form-group">
-                            <input type="date" class="form-control"  name="date_select" required>
+                            <input type="date" class="form-control" name="date_select" required>
                         </div>
                         <button type="submit" class="export"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
@@ -35,6 +35,7 @@
                         {{ session('success') }}
                     </div>
                 @endif
+
                 @if (session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}

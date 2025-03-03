@@ -32,6 +32,9 @@
                             {{ session('error') }}
                         </div>
                     @endif
+                    @error('email')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
                     <div class="form-group py-3">
                         <label for="" class="form-label">Email:</label>
                         <input type="email" placeholder="Email" class="form-control" name="email">
